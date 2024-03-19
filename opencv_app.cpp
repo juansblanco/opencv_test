@@ -1,28 +1,31 @@
-#include <opencv.hpp>
+#include <opencv2/core/core.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/highgui/highgui.hpp>
 #include <iostream>
 
 int main(int argc, char** argv)
 {
+	cv::String path("C:\\Users\\Juan\\Desktop\\rana.png");
 	// Read the image file
-	Mat image = imread("rana.png");
+	cv::Mat image = cv::imread(path);
 
 	// Check for failure
 	if (image.empty()) 
 	{
-		cout << "Could not open or find the image" << endl;
-		cin.get(); //wait for any key press
+		std::cout << "Could not open or find the image" << std::endl;
+		std::cin.get(); //wait for any key press
 		return -1;
 	}
 
-	String windowName = "Frog"; //Name of the window
+	cv::String windowName = "Frog"; //Name of the window
 
-	namedWindow(windowName); // Create a window
+	cv::namedWindow(windowName); // Create a window
 
-	imshow(windowName, image); // Show our image inside the created window.
+	cv::imshow(windowName, image); // Show our image inside the created window.
 
-	waitKey(0); // Wait for any keystroke in the window
+	cv::waitKey(0); // Wait for any keystroke in the window
 
-	destroyWindow(windowName); //destroy the created window
+	cv::destroyWindow(windowName); //destroy the created window
 
 	return 0;
 }

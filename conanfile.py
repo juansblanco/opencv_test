@@ -7,7 +7,7 @@ class Conan(ConanFile):
     generators = 'CMakeDeps', 'CMakeToolchain'
 
     def requirements(self):
-        self.requires("opencv/3.4.20") 
+        self.requires("opencv/4.8.1")
 
     def layout(self):
         cmake_layout(self)
